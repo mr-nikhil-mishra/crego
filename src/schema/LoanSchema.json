@@ -1,0 +1,81 @@
+{
+  "type": "object",
+  "title": "Loan Details",
+  "properties": {
+    "creditScore": {
+      "title": "Credit Card Score",
+      "type": "number"
+    },
+    "loanAmount": {
+      "type": "number",
+      "title": "Loan Amount",
+      "minimum": 50000,
+      "maximum": 500000
+    }
+  },
+  "required": ["creditScore", "loanAmount"],
+  "if": {
+    "properties": {
+      "creditScore": {
+        "type": "number",
+        "maximum": 699
+      }
+    }
+  },
+  "then": {
+    "properties": {
+      "guarantors": {
+        "type": "array",
+        "title": "Guarantors",
+        "minItems": 2,
+        "items": {
+          "types": "objects",
+          "properties": {
+            "name": {
+              "type": "string",
+              "title": "Name"
+            },
+            "PanNumber": {
+              "type": "string",
+              "title": "PAN Card Number",
+              "pattern": "^[A-Z]{5}[0-9]{4}[A-Z]{1}$"
+            },
+            "relationship": {
+              "type": "string",
+              "title": "Relationship",
+              "enum": [
+                "Father",
+                "Mother",
+                "Brother",
+                "Sister",
+                "Spouse",
+                "Other"
+              ]
+            }
+          },
+          "if": {
+            "properties": { "relationship": { "const": "Other" } }
+          },
+          "then": {
+            "properties": {
+              "relation": {
+                "type": "string",
+                "title": "Relationship Specification"
+              }
+            },
+            "required": ["relation"]
+          }
+        }
+      },
+      "bankStatements": {
+        "type": "array",
+        "title": "Bank Statements",
+        "items": {
+          "type": "string",
+          "format": "data-url"
+        }
+      }
+    },
+    "required": ["guarantors", "bankStatements"]
+  }
+}

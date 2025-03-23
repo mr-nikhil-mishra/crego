@@ -1,0 +1,104 @@
+/* Center the form */
+.loan-container {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling */
+.loan-container h1 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form Controls */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Input Fields */
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Button Styling */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button[type="button"] {
+  background: #6c757d;
+  color: white;
+}
+
+button[type="submit"] {
+  background: #007bff;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Step Indicator */
+.step-indicator {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.step {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  background: #ddd;
+  border-radius: 50%;
+}
+
+.step.active {
+  background: #007bff;
+}
+/* Hide the default add button icon */
+button.array-item-add > .btn-primary::before {
+  display: none !important;
+}
+
+i.glyphicon {
+  display: none;
+}
+.btn-add::after {
+  content: "Add";
+}
+.array-item-copy::after {
+  content: "Copy";
+}
+.array-item-move-up::after {
+  content: "Move Up";
+}
+.array-item-move-down::after {
+  content: "Move Down";
+}
+.array-item-remove::after {
+  content: "Remove";
+}

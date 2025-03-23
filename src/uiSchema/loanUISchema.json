@@ -1,0 +1,6 @@
+{
+  "loanAmount": {
+    "ui:widget": "range",
+    "ui:title": "Loan Amount"
+  }
+}
